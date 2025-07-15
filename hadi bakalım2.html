@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beni Affet ❤️</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #ffe6e6;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    .container {
+      padding: 20px;
+      margin-top: 50px;
+    }
+    #devamBtn, #evetBtn, #hayirBtn {
+      padding: 15px 30px;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      margin: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    #devamBtn {
+      background-color: #ff9999;
+      color: white;
+    }
+    #evetBtn {
+      background-color: #66cc66;
+      color: white;
+    }
+    #hayirBtn {
+      background-color: #ff6666;
+      color: white;
+      position: absolute;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 id="baslik">Lütfen beni affet 🙏</h1>
+    <p id="soru" class="hidden">Affediyor musun?</p>
+    <button id="devamBtn">Devam</button>
+    <div id="butonlar" class="hidden">
+      <button id="evetBtn">Evet 💖</button>
+      <button id="hayirBtn">Hayır 😒</button>
+    </div>
+  </div>
+
+  <script>
+    const devamBtn = document.getElementById("devamBtn");
+    const soru = document.getElementById("soru");
+    const butonlar = document.getElementById("butonlar");
+    const hayirBtn = document.getElementById("hayirBtn");
+
+    function gosterButonlar() {
+      devamBtn.classList.add("hidden");
+      soru.classList.remove("hidden");
+      butonlar.classList.remove("hidden");
+    }
+
+    devamBtn.addEventListener("click", gosterButonlar);
+    devamBtn.addEventListener("touchstart", gosterButonlar);
+
+    function kacirButonu() {
+      const maxX = window.innerWidth - hayirBtn.offsetWidth;
+      const maxY = window.innerHeight - hayirBtn.offsetHeight;
+
+      const newX = Math.random() * maxX;
+      const newY = Math.random() * maxY;
+
+      hayirBtn.style.left = `${newX}px`;
+      hayirBtn.style.top = `${newY}px`;
+    }
+
+    hayirBtn.addEventListener("mouseover", kacirButonu);
+    hayirBtn.addEventListener("touchstart", kacirButonu);
+    hayirBtn.addEventListener("click", kacirButonu);
+
+    document.getElementById("evetBtn").addEventListener("click", () => {
+      document.body.innerHTML = `
+        <div class="container">
+          <h1>Yaaa yerim seni güzeller güzeli sevgilim! ❤️</h1>
+          <p>İyi ki affettin beni, yavrum seni çok seviyorum çokkkk 👸</p>
+        </div>
+      `;
+    });
+  </script>
+</body>
+</html>
